@@ -5,29 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Farhan Mehmud Polock — Full Stack Developer</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Portfolio of Farhan Mehmud Polock — Full Stack Developer skilled in PHP, JavaScript, and IoT (ESP32). Explore my projects, technical skills, and contact details.">
-  <meta name="keywords" content="Farhan Mehmud Polock, Full Stack Developer, PHP Developer, JavaScript Developer, IoT Developer, ESP32, Portfolio">
-  <meta name="author" content="Farhan Mehmud Polock">
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" />
 
-  <!-- Open Graph / Social Media Meta -->
-  <meta property="og:title" content="Farhan Mehmud Polock — Full Stack Developer">
-  <meta property="og:description" content="Building modern web & IoT solutions with PHP, JavaScript, and ESP32.">
-  <meta property="og:image" content="https://yourdomain.com/assets/img/preview.jpg">
-  <meta property="og:url" content="https://yourdomain.com">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Favicon -->
-  <link rel="icon" href="assets/img/favicon.png" type="image/png">
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
+  <!-- CSS -->
   <style>
-    /* === Global Styles === */
+    :root {
+      --accent: #2563eb;
+      --accent-light: #3b82f6;
+      --bg-light: #f1f5f9;
+      --bg-white: #ffffff;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --radius: 14px;
+      --shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
     * {
       margin: 0;
       padding: 0;
@@ -36,83 +30,117 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #eef4ff, #f9fbff);
-      color: #222;
+      background: linear-gradient(135deg, #f8fafc, #e0f2fe);
+      color: var(--text-main);
       line-height: 1.6;
       display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 960px;
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 50px;
+      animation: fadeIn 1.2s ease;
     }
 
     header {
       text-align: center;
-      padding: 60px 20px 20px;
+      margin-bottom: 40px;
     }
 
-    header h1 {
-      font-size: 2.2rem;
-      color: #0b5ed7;
-      font-weight: 700;
-      letter-spacing: 0.5px;
+    .profile-img {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--accent);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+      margin-bottom: 1rem;
+      transition: transform 0.35s ease;
+    }
+
+    .profile-img:hover {
+      transform: scale(1.08);
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #444;
-      margin-top: 8px;
-    }
-
-    main {
-      width: 100%;
-      max-width: 900px;
-      padding: 20px;
+      font-size: 1.05rem;
+      color: var(--text-muted);
     }
 
     section {
-      background: #fff;
-      padding: 30px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      margin-bottom: 45px;
     }
 
-    section h2 {
-      color: #0b5ed7;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #0b5ed7;
-      display: inline-block;
-      padding-bottom: 5px;
+    h2 {
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+      border-left: 5px solid var(--accent);
+      padding-left: 12px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
     }
 
     .project {
-      margin-top: 20px;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 18px 24px;
+      margin-bottom: 22px;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .project:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--accent-light);
     }
 
     .project h3 {
-      color: #0b5ed7;
-      font-size: 1.2rem;
-      margin-bottom: 8px;
-    }
-
-    .project p {
-      margin-bottom: 8px;
-    }
-
-    .project a {
-      color: #0b5ed7;
-      text-decoration: none;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 6px;
       font-weight: 600;
-      transition: color 0.2s ease;
     }
 
-    .project a:hover {
-      text-decoration: underline;
-      color: #084298;
+    .buttons a {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 14px;
+      margin-right: 8px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: background 0.25s ease, transform 0.2s ease;
+    }
+
+    .buttons a:hover {
+      background: var(--accent-light);
+      transform: translateY(-2px);
     }
 
     #contact a {
-      color: #0b5ed7;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 500;
     }
@@ -123,79 +151,104 @@
 
     footer {
       text-align: center;
+      margin-top: 30px;
+      color: var(--text-muted);
       font-size: 0.9rem;
-      color: #555;
-      padding: 20px;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 20px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.8rem;
-      }
-
-      section {
-        padding: 20px;
-      }
+      body { padding: 20px 10px; }
+      .container { padding: 30px 20px; }
+      .profile-img { width: 130px; height: 130px; }
+      h1 { font-size: 1.6rem; }
     }
   </style>
 </head>
-<body>
-  <header>
-    <h1>Farhan Mehmud Polock</h1>
-    <p>Full Stack Developer — PHP • JavaScript • IoT (ESP32)</p>
-  </header>
 
-  <main>
+<body>
+  <main class="container">
+    <header>
+      <!-- 🖼️ Profile Photo -->
+      <img src="profile.jpg" alt="Farhan Mehmud Polock" class="profile-img">
+      <h1>👋 Hi, I'm Farhan Mehmud Polock</h1>
+      <p>💻 Full Stack Developer | PHP • JavaScript • MySQL • IoT (ESP32)</p>
+    </header>
+
+    <!-- 🧍 About Me -->
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I’m a dedicated Full Stack Developer passionate about creating web and IoT solutions that make technology more accessible and intelligent. I specialize in <strong>PHP, JavaScript, and ESP32</strong>, with a focus on performance, scalability, and user experience.
+        I'm a passionate <strong>Full Stack Developer</strong> focused on transforming ideas into interactive web and IoT solutions.
+        With a strong command of <strong>PHP, JavaScript, MySQL</strong>, and <strong>ESP32</strong>,
+        I build secure, scalable, and visually refined systems.
+        <br><br>
+        I love exploring the bridge between <strong>Web Development</strong> and <strong>IoT Innovation</strong>,
+        continuously learning and contributing to open-source communities.
       </p>
     </section>
 
+    <!-- 🚀 Projects -->
     <section id="projects">
-      <h2>Featured Projects</h2>
+      <h2>🚀 Featured Projects</h2>
 
-      <article class="project">
-        <h3>🏆 SportOn — Sports Management System</h3>
-        <p>
-          A web-based platform for managing sports tournaments, teams, and fixtures. Includes admin dashboards, match scheduling, and live updates.
-          <br><strong>Tech Stack:</strong> PHP, MySQL, JavaScript
-        </p>
-        <p>
-          <a href="https://github.com/yourusername/sporton" target="_blank">GitHub</a> •
-          <a href="https://sporton-demo.infinityfreeapp.com" target="_blank">Live Demo</a>
-        </p>
-      </article>
+      <div class="project">
+        <h3>🩸 Life Share — Blood Donation Platform</h3>
+        <p>A responsive web app connecting blood donors and recipients instantly for emergency support.</p>
+        <div class="buttons">
+          <a href="https://life-share.infy.uk" target="_blank">🌐 Live</a>
+          <a href="https://github.com/FarhanPolock/LifeShare" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
 
-      <article class="project">
-        <h3>💡 IoT Smart Monitor</h3>
-        <p>
-          A real-time IoT dashboard using ESP32 that monitors environmental sensors and displays live data via RESTful API and OLED display.
-          <br><strong>Tech Stack:</strong> ESP32, PHP, JavaScript, API
-        </p>
-        <p>
-          <a href="https://github.com/yourusername/iot-smart-monitor" target="_blank">GitHub</a>
-        </p>
-      </article>
+      <div class="project">
+        <h3>🏆 SportOn — Sports Tournament Management System</h3>
+        <p>Web-based platform to manage tournaments, team stats, and live match updates efficiently.</p>
+        <div class="buttons">
+          <a href="https://sporton-by-farhan.kesug.com" target="_blank">🌐 Live</a>
+          <a href="https://github.com/FarhanPolock/SportOn" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>💼 FarhanBiz — Business Management System</h3>
+        <p>Helps small businesses manage clients, inventory, and invoices through a simple interface.</p>
+        <div class="buttons">
+          <a href="https://github.com/FarhanPolock/FarhanBiz" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
+
+      <div class="project">
+        <h3>🗳️ BD Voting System</h3>
+        <p>A secure online voting system with transparent results and role-based user access.</p>
+        <div class="buttons">
+          <a href="https://github.com/FarhanPolock/BD-Voting-System" target="_blank">💻 GitHub</a>
+        </div>
+      </div>
     </section>
 
+    <!-- 📞 Contact -->
     <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        📧 <strong>Email:</strong> <a href="mailto:you@example.com">you@example.com</a><br>
-        💼 <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a><br>
-        🧑‍💻 <strong>GitHub:</strong> <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
-      </p>
+      <h2>📞 Contact Me</h2>
+      <p>Email: <a href="mailto:farhanmehmudp@gmail.com">farhanmehmudp@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/farhan-mehmud-polock-0b2b51390" target="_blank">linkedin.com/in/farhan-mehmud-polock</a></p>
+      <p>GitHub: <a href="https://github.com/FarhanPolock" target="_blank">github.com/FarhanPolock</a></p>
+      <p>Portfolio: <a href="https://farhan2003-portfolio.netlify.app/" target="_blank">farhan2003-portfolio.netlify.app</a></p>
     </section>
+
+    <footer>
+      <p>© <span id="year"></span> Farhan Mehmud Polock. All Rights Reserved.</p>
+    </footer>
   </main>
 
-  <footer>
-    <p>&copy; <span id="year"></span> Farhan Mehmud Polock — All Rights Reserved.</p>
-  </footer>
-
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>

@@ -1,19 +1,20 @@
-/* 🌐 Global Theme Variables */
+/* 🌑 Professional Dark Portfolio Theme — Farhan Mehmud Polock */
 :root {
   --max-width: 960px;
-  --accent: #2563eb;              /* Primary accent (modern blue) */
-  --accent-hover: #1d4ed8;
-  --bg-light: #f8fafc;
-  --bg-white: #ffffff;
-  --text-main: #1e293b;
-  --text-muted: #64748b;
-  --border-light: #e2e8f0;
-  --radius: 12px;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --transition: all 0.25s ease;
+  --accent: #3b82f6;              /* Electric blue */
+  --accent-hover: #60a5fa;        /* Light blue glow */
+  --bg-dark: #0b1120;             /* Deep black background */
+  --bg-card: #1e293b;             /* Card surface */
+  --text-main: #f1f5f9;           /* Primary text */
+  --text-muted: #94a3b8;          /* Secondary text */
+  --border-dark: #334155;         /* Soft divider */
+  --radius: 14px;
+  --shadow: 0 6px 20px rgba(0, 0, 0, 0.55);
+  --shadow-hover: 0 12px 28px rgba(0, 0, 0, 0.8);
+  --transition: all 0.3s ease;
 }
 
-/* 🧩 Global Reset & Base */
+/* === Base Reset === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,31 +27,49 @@ html {
 
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
-  background: var(--bg-light);
+  background: var(--bg-dark);
   color: var(--text-main);
   display: flex;
   justify-content: center;
-  padding: 48px 20px;
-  line-height: 1.7;
+  padding: 64px 20px;
+  line-height: 1.75;
+  transition: background 0.4s ease, color 0.4s ease;
   -webkit-font-smoothing: antialiased;
 }
 
-/* 📦 Layout Container */
+/* === Container === */
 .container {
   width: 100%;
   max-width: var(--max-width);
 }
 
-/* 🧠 Header */
+/* === Header === */
 header {
   text-align: center;
-  margin-bottom: 56px;
+  margin-bottom: 72px;
+  animation: fadeInDown 0.7s ease both;
+}
+
+header .profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 18px rgba(59, 130, 246, 0.3);
+  margin-bottom: 18px;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+header .profile-img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 30px rgba(96, 165, 250, 0.45);
 }
 
 header h1 {
-  font-size: 2.2rem;
-  color: var(--accent);
+  font-size: 2.4rem;
   font-weight: 700;
+  color: var(--accent);
   letter-spacing: 0.5px;
 }
 
@@ -58,130 +77,166 @@ header p {
   color: var(--text-muted);
   font-size: 1.1rem;
   margin-top: 8px;
+  font-weight: 500;
 }
 
-/* 🧩 Sections */
+/* === Sections === */
 section {
-  margin-bottom: 56px;
+  margin-bottom: 64px;
 }
 
 h2 {
-  font-size: 1.5rem;
-  border-bottom: 2px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 6px;
-  margin-bottom: 24px;
+  font-size: 1.6rem;
+  border-left: 6px solid var(--accent);
+  padding-left: 12px;
+  margin-bottom: 28px;
   font-weight: 600;
+  color: var(--text-main);
+  position: relative;
 }
 
-/* 💼 Project Cards */
+h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 12px;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+/* === About Section === */
+#about p {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+/* === Project Cards === */
 .project {
-  background: var(--bg-white);
-  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  border: 1px solid var(--border-dark);
   border-radius: var(--radius);
-  padding: 24px;
-  margin-bottom: 20px;
+  padding: 28px;
+  margin-bottom: 28px;
   box-shadow: var(--shadow);
   transition: var(--transition);
-  cursor: default;
+  overflow: hidden;
+  position: relative;
 }
 
 .project:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
+}
+
+.project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.project:hover::before {
+  opacity: 1;
 }
 
 .project h3 {
-  margin-bottom: 10px;
   color: var(--accent);
-  font-size: 1.15rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 10px;
 }
 
 .project p {
   color: var(--text-muted);
-  font-size: 0.98rem;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 16px;
 }
 
-/* 🔗 Links */
-a {
-  color: var(--accent);
-  text-decoration: none;
-  transition: var(--transition);
+/* === Buttons === */
+.buttons a {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
   font-weight: 500;
+  text-decoration: none;
+  margin-right: 10px;
+  box-shadow: 0 3px 10px rgba(59, 130, 246, 0.3);
+  transition: var(--transition);
 }
 
-a:hover {
+.buttons a:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 16px rgba(96, 165, 250, 0.4);
+}
+
+/* === Contact === */
+#contact p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: var(--text-muted);
+}
+
+#contact a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+#contact a:hover {
   color: var(--accent-hover);
   text-decoration: underline;
 }
 
-/* 🧭 Contact Section */
-#contact p {
-  line-height: 1.9;
-  font-size: 1rem;
-}
-
-#contact a {
-  font-weight: 600;
-}
-
-/* ⚙️ Footer */
+/* === Footer === */
 footer {
   text-align: center;
   margin-top: 80px;
   color: var(--text-muted);
   font-size: 0.9rem;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-dark);
   padding-top: 24px;
 }
 
-/* ✨ Subtle Animations */
-.project,
-header h1,
-h2 {
-  animation: fadeInUp 0.6s ease both;
+/* === Animations === */
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 📱 Responsive Design */
+/* === Responsive Design === */
 @media (max-width: 768px) {
   body {
-    padding: 32px 16px;
+    padding: 40px 16px;
   }
-
   header h1 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-
   .project {
-    padding: 20px;
+    padding: 24px;
   }
 }
 
 @media (max-width: 480px) {
   header h1 {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
   }
-
   header p {
     font-size: 1rem;
   }
-
   footer {
     font-size: 0.85rem;
   }
